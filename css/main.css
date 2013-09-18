@@ -1,0 +1,447 @@
+/* jStat blue */
+/*  #2A7CA0   */
+/*  #BFBFBF   */
+
+html,body
+{
+    height: 100%;
+}
+
+html,body,p,div,li,ol,dl,table,img,a,h1,h2,h3,h4,h5,h6,h7,hr
+{
+    padding: 0;
+    margin: 0;
+}
+
+body
+{
+    font-family:  "Trebuchet MS", Tahoma;
+    margin: 0;
+    padding: 0;
+    color: #8B8B8B;
+
+}
+
+div.spacer
+{
+    height: 30px;
+}
+
+#header
+{
+    margin-top: 20px;
+    font-size: 64pt;
+
+}
+
+#header img
+{
+    border: 0;
+}
+
+#header a
+{
+    font-weight: bold;
+    line-height: 1.35em;
+
+    font-family: "Myriad Pro";
+}
+
+span.blue
+{
+    color: #2A7CA0;
+}
+
+span.underline
+{
+    color: #BFBFBF;
+    border-bottom: 5px solid #2A7CA0;
+    font-weight: bold;
+    padding: 0;
+}
+
+#colon
+{
+    font-weight: bold;
+    line-height: 1.35em;
+    color: #2A7CA0;
+    font-family: "Myriad Pro";
+}
+
+#page_title
+{
+    font-weight: bold;
+    line-height: 1.35em;
+    color: #BFBFBF;
+    font-family: "Myriad Pro";
+}
+
+#menu
+{
+    font-size: medium;
+    padding-left: 2px;
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+#menu ul
+{
+    list-style: none;
+    display: inline;
+    padding: 0;
+}
+
+#menu ul li
+{
+    display: inline;
+    padding-right: 25px;
+    font-size: large;
+
+}
+
+#menu ul li a:hover
+{
+    border-bottom: 3px solid #2A7CA0;
+}
+
+a
+{
+    color: #8B8B8B;
+    text-decoration: none;
+}
+
+a.body
+{
+    text-decoration: none;
+    color: #2A7CA0;
+    border-bottom: 1px dotted;
+}
+
+a.body:hover
+{
+    border-bottom: 1px solid;
+}
+
+#body
+{
+    margin-top: 20px;
+
+    padding-bottom: 150px;
+}
+
+#container
+{
+    min-height: 100%;
+}
+
+#footer
+{
+    border-top: 1px solid #DDDDDD;
+    margin-top: -150px;
+    height: 150px;
+
+    position: relative;
+
+    background-color: #EEE;
+
+    padding-left: 0px;
+    padding-top: 0px;
+    padding-bottom: 10px;
+    font-size: small;
+    width: 100%;
+
+    clear: both;
+
+    /* Gradient for browsers that support it */
+    background-image: -webkit-gradient(
+        linear,
+        left bottom,
+        left top,
+        from(#d7d7d7),
+        to(#eee)
+        );
+    background-image: -moz-linear-gradient(
+        top,
+        #eee,
+        #d7d7d7
+        );
+
+}
+
+#footer img
+{
+    vertical-align: bottom;
+}
+
+.center
+{
+    text-align: center;
+}
+
+h1
+{
+    font-size: x-large;
+}
+
+h2
+{
+    font-size: medium;
+}
+
+h3.small
+{
+    font-size: small;
+    color: #333333;
+}
+
+h4
+{
+    color: #2EA02A;
+}
+
+h1,h2,h3,h4
+{
+    color: #2A7CA0;
+}
+
+h1,h2,h3
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+h4
+{
+    font-size: medium;
+}
+
+p
+{
+    padding-top: 10px;
+    padding-bottom: 10px;
+
+    line-height: 1.5em;
+    padding-left: 10px;
+}
+
+span.info
+{
+    border-bottom: 1px dashed;
+    cursor: default;
+}
+
+span.info:hover
+{
+    color: #2A7CA0;
+    border-bottom: 1px solid;
+}
+
+div.info_box
+{
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: small;
+    position: relative;
+    overflow: hidden;
+}
+
+div.info_box p
+{
+    font-size: small;
+}
+
+.shadow
+{
+    box-shadow: #ccc 1px 1px 2px;
+    -moz-box-shadow: #ccc 1px 1px 2px;
+    -webkit-box-shadow: #ccc 1px 1px 2px;
+}
+
+.rounded
+{
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+
+.red
+{
+    color: #A02A2A;
+}
+
+em
+{
+    font-style: italic;
+}
+
+p.info
+{
+    font-size: x-small;
+    font-style: italic;
+    padding-top: 0;
+}
+
+p.info-inline
+{
+    font-size: x-small;
+    font-style: italic;
+    padding-top: 0;
+    display: inline;
+}
+
+#download
+{
+    margin-top: 10px;
+}
+
+#examples img
+{
+    margin-bottom: 20px;
+}
+
+button
+{
+    margin-left: 10px;
+    margin-bottom: 20px;
+}
+
+img.ext
+{
+    vertical-align: bottom;
+}
+
+ul.small a
+{
+    font-size: small;
+}
+
+div#twitter-feed
+{
+    font-family: Garamond;
+    clear: both;
+    width: 400px;
+    height: auto;
+    display: none;
+}
+
+div#twitter-feed p
+{
+    padding-top: 0;
+    font-family: Garamond;
+    padding-left: 0;
+}
+
+div#twitter-feed img
+{
+    float: left;
+    margin-right: 10px;
+    margin-bottom: 5px;
+    box-shadow: #ccc 0px 3px 5px;
+    -moz-box-shadow: #ccc 0px 3px 5px;
+    -webkit-box-shadow: #ccc 0px 3px 5px;
+}
+
+span.date
+{
+    display: block;
+    font-weight: bold;
+    color: #2A7CA0;
+    border-bottom: 1px dashed #ccc;
+}
+
+span.feed
+{
+    display: block;
+    margin-bottom: 10px;
+    margin-top: 5px;
+}
+
+span.margin
+{
+    margin-left: 53px;
+}
+
+#twitter-icon
+{
+    float: left;
+}
+
+#twitter-data
+{
+    width: 300px;
+    clear: left;
+}
+
+#twitter-loading
+{
+
+}
+
+#twitter-loading img
+{
+    margin-left: 80px;
+    margin-right: auto;
+    width: 200px;
+}
+
+.tweet-container div.date
+{
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    background-color: #ababab;
+    box-shadow: #ccc 2px 3px 5px;
+    -moz-box-shadow: #ccc 2px 3px 5px;
+    -webkit-box-shadow: #ccc 2px 3px 5px;
+    float: left;
+    color: white;
+    text-align: center;
+    margin-right: 15px;
+    cursor: pointer;
+    font-family: "Trebuchet MS";
+}
+
+.tweet-container div.date a
+{
+	color: white;
+}
+
+div.date:hover
+{
+    background-color: #2A7CA0;
+
+    box-shadow: #ccc 0px 0px 2px;
+    -moz-box-shadow: #ccc 0px 0px 2px;
+    -webkit-box-shadow: #ccc 0px 0px 2px;
+}
+
+span.day
+{
+    font-size: 2em;
+    font-weight: bolder;
+    padding: 0;
+    margin: 0;
+    height: 20px;
+}
+
+span.month
+{
+    font-weight: bold;
+}
+
+div.data
+{
+    float: left;
+    clear: right;
+}
+
+div.tweet-container
+{
+    float: left;
+    width: 400px;
+    margin-bottom: 20px;
+}

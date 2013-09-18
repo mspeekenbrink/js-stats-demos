@@ -1,0 +1,116 @@
+#plot
+{
+    width: 625px;
+    height: 420px;
+ 
+}
+
+#d-radio
+{
+    margin-left: 32px;
+    margin-bottom: 10px;
+}
+
+#options
+{
+    margin-top: 60px;
+    border-left: 1px solid #DDDDDD;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+#console-button
+{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#console-dialog
+{
+    width: 100%;
+    display: none;
+    padding: 15px;
+    position: absolute;
+    bottom: 0;
+    left: 145px;
+    z-index: 100;
+    border: 15px solid #8ab0c6;
+   
+
+    background-color: white;
+
+
+    border-top-left-radius: 5px;
+    -moz-border-radius-topleft: 5px;
+    -webkit-border-top-left-radius: 5px;
+    
+    border-top-right-radius: 5px;
+    -moz-border-radius-topright: 5px;
+    -webkit-border-top-right-radius: 5px;
+    
+    
+
+    -moz-box-shadow: 0px 0px 10px #ccc;
+    -webkit-box-shadow: 0px 0px 10px #ccc;
+    box-shadow: 0px 0px 10px #ccc;
+}
+
+#console-container
+{
+    border: 1px solid #a5a5a5;
+    background-color: white;
+}
+
+#prompt
+{
+    width: 80%;
+    padding: 4px;
+    font-family: courier;
+    margin-top: 0;
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+#console
+{
+    width: auto;
+    height: 225px;
+    /*border: 1px solid #ccc;*/
+    vertical-align: bottom;
+    padding: 0px;
+    font-family: courier;
+    font-size: small;
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    line-height: 1.5em;
+    position: relative;
+    display: block;
+    overflow: hidden;
+    background-color: white;
+}
+
+
+#console-table {
+    position: absolute;
+    bottom: 0;
+    margin: 0;
+}
+
+span.command
+{
+    font-weight: bold;
+    color: green;
+}
+
+span.data
+{
+    color: blue;
+}
+
+span.error {
+    color: red;
+}

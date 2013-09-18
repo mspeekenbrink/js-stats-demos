@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="moderation, interaction, multiple regression, general linear model" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Regression with a moderating relation</title>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/jquery.aristo.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap-responsive.min.css" >
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/statsApplets.css" />
+
+
+<script type="text/javascript" src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="../js/vendor/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.js"></script>
+<script type="text/javascript" src="js/d3.v3.js"></script>
+<script type="text/javascript" src="js/jstat-1.0.0.js"></script>
+<script type="text/javascript" src="js/moderation.js"></script>
+
+    <meta name="description" content="Experiment with a moderated regression model" />
+    </head>
+<body>
+            <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+        
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">ReCaSt</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Moderation</a></li>
+                            <li><a href="#applet">Applet</a></li>
+                            <li><a href="#instructions">Instructions</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Statistics applets <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="moderation.html">Moderation</a></li>
+                                    <li><a href="contrastcoding.html">Contrast coding</a></li>
+                                    <li><a href="#">Mixed effects</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        
+    <div class="container">
+    
+        <div id ="applet">
+        <div class="row">
+            <div class="span4">
+            
+                <div class="row">
+                    <div class="span4">
+                        <h2 id="toolbar">Parameters</h2>
+                        <h3 class="small" id="b0-label"><span id="b0-name">Intercept (b<sub>0</sub>)</span>:&nbsp;<span id="b0-value">1.0</span></h3>
+                        <div id="b0"></div>
+                        <h3 class="small" id="b1-label"><span id="b1-name">Slope of X<sub>1</sub> (b<sub>1</sub>)</span>:&nbsp;<span id="b1-value">0.6</span></h3>
+                        <div id="b1"></div>
+                        <h3 class="small" id="b2-label"><span id="b2-name">Slope of X<sub>2</sub> (b<sub>2</sub>)</span>:&nbsp;<span id="b2-value">0.3</span></h3>
+                        <div id="b2"></div>
+                        <h3 class="small" id="b3-label"><span id="b3-name">Slope of interaction between X<sub>1</sub> and X<sub>2</sub> (b<sub>3</sub>)</span>:&nbsp;<span id="b3-value">0.1</span></h3>
+                        <div id="b3"></div>
+                    </div>
+                    <div class="span4">
+                        <h2 id="toolbar">Options</h2>
+                        <h3 class="small" id="yrange-label"><span id="yrange-name">Range for Y</span>:&nbsp;<span id="yrange-min">0.0</span>-<span id="yrange-max">10.0</span></h3>
+                        <div id="yrange"></div>
+                        <h3 class="small" id="x1range-label"><span id="x1range-name">Range for X<sub>1</sub></span>:&nbsp;<span id="x1range-min">0.0</span>-<span id="x1range-max">10.0</span></h3>
+                        <div id="x1range"></div>
+                        <h3 class="small" id="x2range-label"><span id="x2range-name">Range for X<sub>2</sub></span>:&nbsp;<span id="x2range-min">0.0</span>-<span id="x2range-max">10.0</span></h3>
+                        <div id="x2range"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="span8">
+                <h2 id="toolbar">Variable in plot:</h2>
+                <div id="xaxis-radio">
+                    <input type="radio" id="xaxis-x1" name="xaxis-radio" checked="checked"/><label for="xaxis-x1">X<sub>1</sub></label>
+                    <input type="radio" id="xaxis-x2" name="xaxis-radio" /><label for="xaxis-x2">X<sub>2</sub></label>
+                </div>
+                <div id="plot"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="instructions">
+     <div class="row">
+            <div class="span12">
+            <h2>Instructions</h2>
+            <p>The applet considers the following regression model:
+            <p class="equation">Y<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub>X<sub>1i</sub> + &beta;<sub>2</sub>X<sub>2i</sub> + 
+            &beta;<sub>3</sub>(X<sub>1</sub>X<sub>2</sub>)<sub>i</sub> + &epsilon;<sub>i</sub></p>
+            The applet plots the predicted values of <variable>Y</variable> as a function of one of the predictors 
+            (e.g., <variable>X<sub>1</sub></variable>) for several values of the other predictor (e.g. <variable>X<sub>2</sub></variable>).
+            Predictions are obtained by filling in the value of the other predictor in the formula above. For instance, the predicted relation between 
+            Y and X<sub>1</sub>, for a value of X<sub>2</sub> = 2 is
+            <p class="equation">Y<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub>X<sub>1i</sub> + &beta;<sub>2</sub>&times;2 + 
+            &beta;<sub>3</sub>(X<sub>1</sub>&times;2)<sub>i</sub><br />
+            = (&beta;<sub>0</sub> + 2 &times; &beta;<sub>2</sub>) + (&beta;<sub>1</sub> + 2 &times; &beta;<sub>3</sub>) X<sub>1i</sub>
+            </p>
+            </p>
+            <p>Using the sliders, you can change the values of the parameters of the model (the intercept and slopes) and observe
+            the effect of these changes on the model predictions.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+        
+

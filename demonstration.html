@@ -1,0 +1,127 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="JavaScript, statistics, statistical, library, probability distributions, PDF, CDF, plotting, graphs" />
+        <title>jStat : demonstration
+</title>
+<link rel="stylesheet" type="text/css" media="screen" href="../css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/jquery.aristo.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/demonstration.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.jstat.org/css/prettify.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="http://www.jstat.org/css/jquery.css" />
+
+<script type="text/javascript" src="http://www.jstat.org/js/prettify.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.js"></script>
+<script type="text/javascript" src="js/jquery.flot.0.7.js"></script>
+<script type="text/javascript" src="js/jstat-1.0.0.js"></script>
+<script type="text/javascript" src="http://www.jstat.org/js/jquery.qtip-1.0.0-rc3.min.js"></script>
+<script type="text/javascript" src="js/demonstration.js"></script>
+
+        <!--[if IE]><script language="javascript" type="text/javascript" src="/js/excanvas.min.js"></script><![endif]-->
+
+        <meta name="description" content="Experiment with jStat: a statistical library written in JavaScript.
+" />
+
+        <script type="text/javascript">
+
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-21571429-1']);
+            _gaq.push(['_trackPageview']);
+
+            (function() {
+                var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+                ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+            })();
+
+        </script>
+        <!-- <link rel="icon" type="image/png" href="/images/favicon.png" /> -->
+    </head>
+    <body>
+        <div id="container">
+                
+
+                    
+
+
+
+
+<div class="row">
+    <div class="span8">
+        <form>
+            <h2>Select a distribution:</h2>
+            <div id="d-radio">
+                <input type="radio" id="beta" name="d-radio" /><label for="beta">Beta</label>
+                <input type="radio" id="gamma" name="d-radio"  /><label for="gamma">Gamma</label>
+                <input type="radio" id="log-normal" name="d-radio" /><label for="log-normal">Log-normal</label>
+                <input type="radio" id="normal" name="d-radio" checked="checked" /><label for="normal">Normal</label>
+                <input type="radio" id="student-t" name="d-radio" /><label for="student-t">Student T</label>
+            </div>
+
+        </form>
+    </div>
+</div>
+<div class="row">
+    <div class="span8">
+        <div id="plot"></div>
+    </div>
+<div class="span4">
+    <div id="options">
+        <h3>Plot function</h3>
+        <div id="p-radio">
+            <input type="radio" id="pdf" name="p-radio" checked="checked"/><label for="pdf">PDF</label>
+            <input type="radio" id="cdf" name="p-radio"  /><label for="cdf">CDF</label>
+            <input type="radio" id="both" name="p-radio" /><label for="both">Both</label>
+        </div>
+
+
+
+        <h3>Plot type</h3>
+        <div id="type-radio">
+            <input type="radio" id="points" name="type-radio" /><label for="points">Points</label>
+            <input type="radio" id="line" name="type-radio" checked="checked" /><label for="line">Line</label>
+            <input type="radio" id="type-both" name="type-radio" /><label for="type-both">Both</label>
+        </div>
+
+        <h3>Fill</h3>
+        <div id="fill-radio">
+            <input type="radio" id="fill-on" name="fill-radio"/><label for="fill-on">On</label>
+            <input type="radio" id="fill-off" name="fill-radio"  checked="checked" /><label for="fill-off">Off</label>
+        </div>
+
+        <h3>Info-hover</h3>
+        <div id="hover-radio">
+            <input type="radio" id="hover-on" name="hover-radio"/><label for="hover-on">On</label>
+            <input type="radio" id="hover-off" name="hover-radio"  checked="checked" /><label for="hover-off">Off</label>
+        </div>
+
+        <h3 id="num-points-title">Number of points: 100</h3>
+        <div id="num-points"></div>
+
+    </div>
+</div>
+</div>
+<div class="row">
+<div class="span8">
+    <div>
+        <h2 id="parameters">Parameters</h2>
+        <h3 class="small" id="param1-label"><span id="param1-name">Mean:</span> <span id="param1-value">0.0</span></h3>
+        <div id="param1"></div>
+        <h3 class="small" id="param2-label"><span id="param2-name">Standard deviation:</span> <span id="param2-value">1.0</span></h3>
+        <div id="param2"></div>
+    </div>
+</div>
+</div>                
+
+            
+        </div>
+ 
+
+
+    </body>
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="keywords" content="moderation, interaction, multiple regression, general linear model" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Contrast coding</title>
+
+
+<link rel="stylesheet" type="text/css" media="screen" href="css/jquery.aristo.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="../css/bootstrap-responsive.min.css" >
+<link rel="stylesheet" type="text/css" media="screen" href="css/main.css" />
+<link rel="stylesheet" type="text/css" media="screen" href="css/statsApplets.css" />
+
+
+<script type="text/javascript" src="../js/vendor/modernizr-2.6.2-respond-1.1.0.min.js"></script>
+<script type="text/javascript" src="js/jquery-1.10.1.js"></script>
+<script type="text/javascript" src="../js/vendor/bootstrap.js"></script>
+<script type="text/javascript" src="js/jquery-ui-1.10.3.js"></script>
+<script type="text/javascript" src="js/d3.v3.js"></script>
+<script type="text/javascript" src="js/jstat-1.0.0.js"></script>
+<script type="text/javascript" src="js/contrastcoding.js"></script>
+
+    <meta name="description" content="Experiment with a moderated regression model" />
+    </head>
+<body>
+            <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
+
+        <!-- This code is taken from http://twitter.github.com/bootstrap/examples/hero.html -->
+        
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">ReCaSt</a>
+                    <div class="nav-collapse collapse">
+                        <ul class="nav">
+                            <li class="active"><a href="#">Contrast coding</a></li>
+                            <li><a href="#applet">Applet</a></li>
+                            <li><a href="#instructions">Instructions</a></li>
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Statistics applets <b class="caret"></b></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="moderation.html">Moderation</a></li>
+                                    <li><a href="contrastcoding.html">Contrast coding</a></li>
+                                    <li><a href="#">Mixed effects</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+        
+    <div class="container">
+    
+        <div id ="applet">
+        <div class="row">
+            <div class="span4">
+                <div class="row">
+                    <h2 id="toolbar">Type of contrast</h2>
+                    <div id="contrast-radio">
+                        <input type="radio" id="c-helmert" name="contrast-radio" checked="checked" /><label for="c-helmert">helmert</label>
+                        <input type="radio" id="c-polynomial" name="contrast-radio" /><label for="c-polynomial">polynomial</label>
+                        <input type="radio" id="c-dummy" name="contrast-radio" /><label for="c-dummy">dummy</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <h2 id="toolbar">Number of groups</h2>
+                     <div id="ngroup-radio">
+                        <input type="radio" id="ngroup-2" name="ngroup-radio" /><label for="ngroup-2">2</label>
+                        <input type="radio" id="ngroup-3" name="ngroup-radio" checked="checked" /><label for="ngroup-3">3</label>
+                        <input type="radio" id="ngroup-4" name="ngroup-radio" /><label for="ngroup-4">4</label>
+                        <input type="radio" id="ngroup-5" name="ngroup-radio" /><label for="ngroup-5">5</label>
+                    </div>
+                    <h2 id="toolbar">Model</h2>
+                    <p><span id="model-text"></span></p>
+                    <h2 id="toolbar">Contrast values</h2>
+                    <p><span id="contrastValues-text"></span></p>
+                </div>
+            </div>
+            <div class="span8">
+                <h2 id="toolbar">Options</h2>
+                        <input type="button" id="sampleMeansButton" name="sampleMeansButton" value="Sample means" />
+                        <input type="button" id="animateButton" name="animateButton" value="Animate" />
+                <div id="plot"></div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div id="instructions">
+     <div class="row">
+            <div class="span12">
+            <h2>Instructions</h2>
+            <h3>Introduction</h3>
+            <p>This applet was designed to help you explore the workings of contrast coding. Contrast coding is a technique which
+            allows you to include categorical predictor variables into a linear (regression) model. In contrast coding, if a categorical
+            predictor variable has <em>k</em> levels, you create <em>k-1</em>new predictor variables, which we'll call <em>contrast-coded
+            predictors</em>. These new variables are entered into the regression model as any other metric predictor. By using a proper
+            contrast code to assign the values to the contrast coded predictors, the regression model is able to perfectly fit any pattern
+            in the means of the groups (levels of the categorical predictor). With this applet, you can view animations of how this works.</p> 
+            <h3>Options</h3>
+            <h4>Contrast types</h4>
+            <p>Three common contrast types are included: Helmert contrasts, polynomial contrasts, and dummy codes. You can view the values
+            assigned to the contrast coded predictors in the section called "contrast values", at the bottom left of the screen.</p>
+            <h4>Number of groups</h4>
+            <p>You can choose between 2 and 5 groups (levels of the categorical predictor). Once you change the number of groups, the applet
+            will automatically sample new means for these groups. You can choose to assign new random means at any time by clicking the 
+            "sample means" button above the plot.</p>
+            <h4>Animation</h4>
+            <p>By clicking on the "animate" button, you can see how the means of the groups can be build up from the model parameters and 
+            the contrast coded predictors. The group means and their predicted values are displayed in the bottom panel of the plot. 
+            The top panel displays the value
+            of the contrast coded predictors. When you click on "animate", this panel will first show the value of the intercept. This value
+            is the same for each group and is the first element of the predicted group means. Once the intercept is added to the model predictions 
+            in the bottom panel, the top panel will show the value of the first 
+            contrast-coded predictor, first "as-is", and then multiplied by the value of the first slope. According to the regression model,
+            these values are then added to the model predictions in the plot below. If there are more than one contrast-coded predictors, this
+            is repeated for each predictor in the model.</p>
+            
+            
+            
+            <p>The applet considers the following regression model:
+            <p class="equation">Y<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub>X<sub>1i</sub> + &beta;<sub>2</sub>X<sub>2i</sub> + 
+            &beta;<sub>3</sub>(X<sub>1</sub>X<sub>2</sub>)<sub>i</sub> + &epsilon;<sub>i</sub></p>
+            The applet plots the predicted values of <variable>Y</variable> as a function of one of the predictors 
+            (e.g., <variable>X<sub>1</sub></variable>) for several values of the other predictor (e.g. <variable>X<sub>2</sub></variable>).
+            Predictions are obtained by filling in the value of the other predictor in the formula above. For instance, the predicted relation between 
+            Y and X<sub>1</sub>, for a value of X<sub>2</sub> = 2 is
+            <p class="equation">Y<sub>i</sub> = &beta;<sub>0</sub> + &beta;<sub>1</sub>X<sub>1i</sub> + &beta;<sub>2</sub>&times;2 + 
+            &beta;<sub>3</sub>(X<sub>1</sub>&times;2)<sub>i</sub><br />
+            = (&beta;<sub>0</sub> + 2 &times; &beta;<sub>2</sub>) + (&beta;<sub>1</sub> + 2 &times; &beta;<sub>3</sub>) X<sub>1i</sub>
+            </p>
+            </p>
+            <p>Using the sliders, you can change the values of the parameters of the model (the intercept and slopes) and observe
+            the effect of these changes on the model predictions.</p>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+        
+
+

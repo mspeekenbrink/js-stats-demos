@@ -1,0 +1,84 @@
+#plot
+{
+    width: 625px;
+    height: 625px;
+}
+
+#d-radio
+{
+    margin-left: 32px;
+    margin-bottom: 10px;
+}
+
+#option
+{
+    margin-top: 60px;
+    border-left: 1px solid #DDDDDD;
+    padding-left: 20px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+}
+
+h2#toolbar
+{
+    margin-top: 20px;
+    margin-bottom: -5px;
+} 
+
+
+#prompt
+{
+    width: 80%;
+    padding: 4px;
+    font-family: courier;
+    margin-top: 0;
+    outline: none;
+    border: none;
+    background-color: white;
+}
+
+span.command
+{
+    font-weight: bold;
+    color: green;
+}
+
+span.data
+{
+    color: blue;
+}
+
+span.error {
+    color: red;
+}
+
+.xaxis path, 
+.yaxis path, 
+.xaxis line,
+.yaxis line {
+  fill: none;
+  stroke: #000;
+  stroke-width: 2px;
+  shape-rendering: crispEdges;
+}
+
+.line {
+  fill: none;
+  stroke: steelblue;
+  stroke-width: 3px;
+}
+
+.equation {
+    padding-left: 32px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    background-color: #DDDDDD;
+}
+
+.contrastTable {
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: right;
+}
